@@ -15,7 +15,7 @@ public class ValidarJanelaDatas implements IStrategy {
                     return "A data de check-in não pode ser no passado.";
                 }
                 if (!reserva.getDataSaida().isAfter(reserva.getDataEntrada())) {
-                    return "RN0212: A data de saída deve ser posterior à data de entrada.";
+                    return "A data de saída deve ser posterior à data de entrada.";
                 }
             }
         }

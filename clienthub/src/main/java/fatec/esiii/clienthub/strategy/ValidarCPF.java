@@ -38,7 +38,7 @@ public class ValidarCPF implements IStrategy {
             Optional<Hospede> existente = hospedeRepository.findByCpf(cpf);
             if (existente.isPresent()) {
                 if (hospede.getId() == null || !hospede.getId().equals(existente.get().getId())) {
-                    return "CPF já cadastrado no sistema (RN0202: Unicidade de CPF).";
+                    return "CPF já cadastrado no sistema.";
                 }
             }
         }

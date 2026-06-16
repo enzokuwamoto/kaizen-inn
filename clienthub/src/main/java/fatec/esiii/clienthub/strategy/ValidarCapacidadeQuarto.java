@@ -25,10 +25,10 @@ public class ValidarCapacidadeQuarto implements IStrategy {
                 if (quartoOpt.isPresent()) {
                     Quarto quarto = quartoOpt.get();
                     if (reserva.getQtdeAdultos() > quarto.getCapacidadeAdultos()) {
-                        return "RN0213: A quantidade de adultos excede a capacidade do quarto.";
+                        return "A quantidade de adultos excede a capacidade do quarto.";
                     }
                     if (reserva.getQtdeCriancas() > quarto.getCapacidadeCriancas()) {
-                        return "RN0213: A quantidade de crianças excede a capacidade do quarto.";
+                        return "A quantidade de crianças excede a capacidade do quarto.";
                     }
                 } else {
                     return "Quarto informado não encontrado.";

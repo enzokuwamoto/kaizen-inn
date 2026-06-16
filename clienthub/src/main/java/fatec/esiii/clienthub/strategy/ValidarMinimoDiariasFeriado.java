@@ -21,7 +21,7 @@ public class ValidarMinimoDiariasFeriado implements IStrategy {
                 boolean isFeriadoProlongado = (mes == 12 && dia >= 24) || (mes == 2 && dia >= 15); // Ex: Natal/Carnaval
                 
                 if (isFeriadoProlongado && diarias < 2) {
-                    return "RN0214: Em feriados prolongados, a reserva deve possuir no mínimo 2 diárias.";
+                    return "Em feriados prolongados, a reserva deve possuir no mínimo 2 diárias.";
                 }
             }
         }

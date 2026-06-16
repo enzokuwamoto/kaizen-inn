@@ -24,7 +24,7 @@ public class ValidarConfirmacaoCondicionadaPgto implements IStrategy {
 
             if (reserva.getStatus() == StatusReserva.CONFIRMADA) {
                 if (reserva.getId() == null) {
-                    return "RN0222: Reserva nova não pode nascer como CONFIRMADA sem pagamento prévio.";
+                    return "Reserva nova não pode nascer como CONFIRMADA sem pagamento prévio.";
                 }
                 
                 List<Pagamento> pagamentos = pagamentoRepository.findByReservaId(reserva.getId());
@@ -32,7 +32,7 @@ public class ValidarConfirmacaoCondicionadaPgto implements IStrategy {
                         .anyMatch(p -> p.getStatus() == StatusPagamento.APROVADO);
                         
                 if (!hasAprovado) {
-                    return "RN0222: A reserva não pode ser confirmada pois não possui pagamento aprovado.";
+                    return "A reserva não pode ser confirmada pois não possui pagamento aprovado.";
                 }
             }
         }
