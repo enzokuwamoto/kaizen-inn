@@ -18,10 +18,15 @@ public class ValidarDataCheckIn implements IStrategy {
             // Só validamos a data se o status estiver mudando para CHECK_IN
             if (reserva.getStatus() == StatusReserva.CHECK_IN) {
                 if (reserva.getDataEntrada() != null) {
-                    LocalDate hoje = LocalDate.now();
-                    if (!hoje.isEqual(reserva.getDataEntrada())) {
-                        return "O Check-in só pode ser realizado exatamente no dia agendado para a entrada (" + 
-                               reserva.getDataEntrada().toString() + ").";
+                    LocalDate dataCheckin = null;
+                    if (reserva.getDataCheckinReal() != null) {
+                        dataCheckin = reserva.getDataCheckinReal().toLocalDate();
+                    } else {
+                        dataCheckin = LocalDate.now();
+                    }
+                    
+                    if (!dataCheckin.isEqual(reserva.getDataEntrada())) {
+                        return "A data real de Check-in informada (" + dataCheckin + ") deve ser exatamente o dia agendado para a entrada (" + reserva.getDataEntrada() + ").";
                     }
                 }
             }
